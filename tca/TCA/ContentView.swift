@@ -48,23 +48,21 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 private func searchRepositories(_ searchText: String, _ complete: @escaping ([GithubRepository]) -> Void) {
-    print("#searchText: \"\(searchText)\"")
     let rawUrl = "https://api.github.com/users/\(searchText)/repos?per_page=100&page=1&sort=created&direction=desc"
     guard let url = URL(string: rawUrl) else { fatalError("missing URL") }
-
     let urlRequest = URLRequest(url: url)
     let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
         if let error = error {
-            print("#URLRequest:error \(error)")
+            print("URLSession:error \(error)")
             return
         }
         guard let response = response as? HTTPURLResponse, let data = data else { return }
-        let statusCode = response.statusCode
         DispatchQueue.main.async {
-            let value = [GithubRepository].decode(json: data) ?? []
-            print("#URLRequest:success")
-            print("  - \(statusCode)")
-            complete(value)
+            if response.statusCode != 200 {
+                complete([])
+                return
+            }
+            complete([GithubRepository].decode(json: data) ?? [])
         }
     }
     task.resume()
