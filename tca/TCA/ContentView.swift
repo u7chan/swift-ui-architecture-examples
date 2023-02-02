@@ -10,16 +10,25 @@ import SwiftUI
 struct ContentView: View {
     
     @State var text: String = ""
+    @State var loading: Bool = false
 
     var body: some View {
         VStack {
-            Image("icon-github")
+            if loading {
+                ProgressView()
+            } else {
+                Image("icon-github")
+            }
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "magnifyingglass")
                     TextField("Search...", text: $text)
                         .onSubmit {
-                            print("#Submit: \(text)")
+                            loading = true
+                            searchRepositories(text) { repositories in
+                                loading = false
+                                print("#repositories: \(repositories.map { $0.toString() })")
+                            }
                         }
                         .autocapitalization(.none)
                         .keyboardType(.asciiCapable)
@@ -35,5 +44,50 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+private func searchRepositories(_ searchText: String, _ complete: @escaping ([GithubRepository]) -> Void) {
+    print("#searchText: \"\(searchText)\"")
+    let rawUrl = "https://api.github.com/users/\(searchText)/repos?per_page=100&page=1&sort=created&direction=desc"
+    guard let url = URL(string: rawUrl) else { fatalError("missing URL") }
+
+    let urlRequest = URLRequest(url: url)
+    let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        if let error = error {
+            print("#URLRequest:error \(error)")
+            return
+        }
+        guard let response = response as? HTTPURLResponse, let data = data else { return }
+        let statusCode = response.statusCode
+        DispatchQueue.main.async {
+            let value = [GithubRepository].decode(json: data) ?? []
+            print("#URLRequest:success")
+            print("  - \(statusCode)")
+            complete(value)
+        }
+    }
+    task.resume()
+}
+
+private extension Decodable {
+    static func decode(json data: Data?) -> Self? {
+        guard let data = data else { return nil }
+        let decoder = JSONDecoder()
+        return try? decoder.decode(Self.self, from: data)
+    }
+}
+
+private struct GithubRepository: Decodable {
+    let id: Int
+    let name: String
+    let language: String?
+    let stargazers_count: Int
+    let watchers_count: Int
+}
+
+private extension GithubRepository {
+    func toString() -> String {
+        return "id=\(id),name=\(name),language=\(language ?? "nil"),stargazers_count=\(stargazers_count),watchers_count=\(watchers_count)"
     }
 }
