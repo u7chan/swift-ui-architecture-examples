@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var text: String = ""
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Image("icon-github")
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    TextField("Search...", text: $text)
+                        .onSubmit {
+                            print("#Submit: \(text)")
+                        }
+                        .autocapitalization(.none)
+                        .keyboardType(.asciiCapable)
+                        .submitLabel(.done)
+                }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding()
         }
         .padding()
     }
