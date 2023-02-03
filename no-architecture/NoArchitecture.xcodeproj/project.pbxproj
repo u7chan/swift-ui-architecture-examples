@@ -91,20 +91,12 @@
 		ACC157ED298D40D80092C884 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACC157EE298D40DE0092C884 /* Screen */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ACC157EE298D40DE0092C884 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
 				ACE2C63C298D5453001E13F3 /* LaunchScreenView.swift */,
 				ACC157C3298BF6370092C884 /* GithubSearchView.swift */,
 				ACC157EF298D41380092C884 /* GithubSearchResultView.swift */,
 				ACE2C638298D4402001E13F3 /* GithubDetailView.swift */,
 			);
-			path = Screen;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		ACE2C63E298D59BE001E13F3 /* Models */ = {
