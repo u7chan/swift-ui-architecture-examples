@@ -15,7 +15,6 @@ struct SearchItem: Decodable {
     let watchers_count: Int
 }
 
-
 extension SearchItem {
     func toString() -> String {
         return "id=\(id),name=\(name),language=\(language ?? "nil"),stargazers_count=\(stargazers_count),watchers_count=\(watchers_count)"
