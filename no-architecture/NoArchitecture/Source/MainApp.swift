@@ -1,6 +1,6 @@
 //
 //  MainApp.swift
-//  TCA
+//  NoArchitecture
 //
 //  Created by unagami on 2023/02/02.
 //
