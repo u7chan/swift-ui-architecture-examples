@@ -11,7 +11,7 @@ struct GithubSearchView: View {
     
     @State private (set) var isNavigation = false
     
-    @State private var text: String = ""
+    @State private var inputText: String = ""
     @State private var loading: Bool = false
     @State private var searchItems: [SearchItem] = []
     
@@ -25,10 +25,10 @@ struct GithubSearchView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "magnifyingglass")
-                    TextField("Search...", text: $text)
+                    TextField("Search...", text: $inputText)
                         .onSubmit {
                             loading = true
-                            GithubAPI.searchRepositories(text) {
+                            GithubAPI.searchRepositories(inputText) {
                                 loading = false
                                 isNavigation = true
                                 searchItems = $0
