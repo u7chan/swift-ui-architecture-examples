@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchItem: Decodable {
+struct SearchItem: Decodable, Hashable {
     let id: Int
     let name: String
     let language: String?

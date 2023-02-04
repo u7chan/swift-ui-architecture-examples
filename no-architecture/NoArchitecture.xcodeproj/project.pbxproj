@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC954369298EB1C60099BFAA /* FullFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC954368298EB1C60099BFAA /* FullFrameModifier.swift */; };
 		ACC157C2298BF6370092C884 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC157C1298BF6370092C884 /* MainApp.swift */; };
 		ACC157C4298BF6370092C884 /* GithubSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC157C3298BF6370092C884 /* GithubSearchView.swift */; };
 		ACC157C6298BF6390092C884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC157C5298BF6390092C884 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC954368298EB1C60099BFAA /* FullFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFrameModifier.swift; sourceTree = "<group>"; };
 		ACC157BE298BF6370092C884 /* NoArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC157C1298BF6370092C884 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		ACC157C3298BF6370092C884 /* GithubSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC954367298EB1B90099BFAA /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				AC954368298EB1C60099BFAA /* FullFrameModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
 		ACC157B5298BF6370092C884 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		ACC157ED298D40D80092C884 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC954367298EB1B90099BFAA /* Modifier */,
 				ACE2C63C298D5453001E13F3 /* LaunchScreenView.swift */,
 				ACC157C3298BF6370092C884 /* GithubSearchView.swift */,
 				ACC157EF298D41380092C884 /* GithubSearchResultView.swift */,
@@ -183,6 +194,7 @@
 				ACE2C640298D59D0001E13F3 /* GithubAPI.swift in Sources */,
 				ACE2C63D298D5453001E13F3 /* LaunchScreenView.swift in Sources */,
 				ACE2C644298D5B74001E13F3 /* Decodable+decode.swift in Sources */,
+				AC954369298EB1C60099BFAA /* FullFrameModifier.swift in Sources */,
 				ACC157C2298BF6370092C884 /* MainApp.swift in Sources */,
 				ACE2C639298D4402001E13F3 /* GithubDetailView.swift in Sources */,
 				ACE2C642298D5AFE001E13F3 /* SearchItem.swift in Sources */,

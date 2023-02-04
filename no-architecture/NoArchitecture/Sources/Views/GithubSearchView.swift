@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct GithubSearchView: View {
-    
-    @State private (set) var isNavigation = false
-    
+    @State private(set) var isNavigation = false
+
     @State private var inputText: String = ""
     @State private var loading: Bool = false
     @State private var searchItems: [SearchItem] = []
-    
+
     var body: some View {
         VStack {
             if loading {
@@ -46,6 +45,8 @@ struct GithubSearchView: View {
             }.padding()
         }
         .padding()
+        .modifier(FullFrameModifier())
+        .background(Color("Background"))
         .navigationDestination(isPresented: $isNavigation) {
             GithubSearchResultView(searchItems: searchItems)
         }

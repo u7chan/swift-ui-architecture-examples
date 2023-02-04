@@ -12,7 +12,7 @@ struct GithubAPI {
         let rawUrl = "https://api.github.com/users/\(searchText)/repos?per_page=100&page=1&sort=created&direction=desc"
         guard let url = URL(string: rawUrl) else { fatalError("missing URL") }
         let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 print("URLSession:error \(error)")
                 return
