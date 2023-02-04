@@ -27,8 +27,12 @@ struct GithubSearchView: View {
                     Image(systemName: "magnifyingglass")
                     TextField("Search...", text: $inputText)
                         .onSubmit {
+                            let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
+                            if srcInputText.isEmpty {
+                                return
+                            }
                             loading = true
-                            GithubAPI.searchRepositories(inputText) {
+                            GithubAPI.searchRepositories(srcInputText) {
                                 loading = false
                                 isNavigation = true
                                 searchItems = $0
