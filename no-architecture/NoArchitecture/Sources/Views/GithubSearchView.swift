@@ -19,7 +19,7 @@ struct GithubSearchView: View {
             if loading {
                 ProgressView()
             } else {
-                Image("icon-github")
+                Image("GithubIcon")
             }
             VStack(alignment: .leading) {
                 HStack {
