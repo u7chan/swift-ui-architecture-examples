@@ -63,7 +63,7 @@
 		ACC157C0298BF6370092C884 /* NoArchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				ACC157EB298D3F7F0092C884 /* Source */,
+				ACC157EB298D3F7F0092C884 /* Sources */,
 				ACC157C5298BF6390092C884 /* Assets.xcassets */,
 				ACC157C7298BF6390092C884 /* Preview Content */,
 			);
@@ -78,14 +78,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ACC157EB298D3F7F0092C884 /* Source */ = {
+		ACC157EB298D3F7F0092C884 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				ACE2C63E298D59BE001E13F3 /* Models */,
 				ACC157ED298D40D80092C884 /* Views */,
 				ACC157C1298BF6370092C884 /* MainApp.swift */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		ACC157ED298D40D80092C884 /* Views */ = {
