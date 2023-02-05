@@ -28,7 +28,7 @@ struct GithubSearchView: View {
                 TextField("Search...", text: $inputText)
                     .onSubmit {
                         let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
-                        invalidInput = srcInputText.isEmpty || gitHubUserNameValidator(srcInputText)
+                        invalidInput = srcInputText.isEmpty || githubUserNameValidator(srcInputText)
                         if invalidInput {
                             return
                         }
@@ -72,7 +72,7 @@ struct GithubSearchView_Previews: PreviewProvider {
     }
 }
 
-private func gitHubUserNameValidator(_ userName: String) -> Bool {
+private func githubUserNameValidator(_ userName: String) -> Bool {
     let maxSize = 39
     let pattern = "^[a-zA-Z0-9]([a-zA-Z0-9]?|[\\-]?([a-zA-Z0-9])){0,\(maxSize - 1)}$"
     guard let regex = try? NSRegularExpression(pattern: pattern) else { return true }
