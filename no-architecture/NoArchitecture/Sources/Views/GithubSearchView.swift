@@ -21,31 +21,30 @@ struct GithubSearchView: View {
             } else {
                 Image("GithubIcon")
             }
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("Search...", text: $inputText)
-                        .onSubmit {
-                            let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
-                            if srcInputText.isEmpty {
-                                return
-                            }
-                            loading = true
-                            GithubAPI.searchRepositories(srcInputText) {
-                                loading = false
-                                isNavigation = true
-                                searchItems = $0
-                            }
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search...", text: $inputText)
+                    .onSubmit {
+                        let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
+                        if srcInputText.isEmpty {
+                            return
                         }
-                        .autocapitalization(.none)
-                        .keyboardType(.asciiCapable)
-                        .submitLabel(.done)
-                }
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding()
+                        loading = true
+                        GithubAPI.searchRepositories(srcInputText) {
+                            loading = false
+                            isNavigation = true
+                            searchItems = $0
+                        }
+                    }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .keyboardType(.asciiCapable)
+                    .submitLabel(.done)
+            }
+            .padding()
         }
-        .padding()
         .modifier(FullFrameModifier())
+        .padding()
         .background(Color("Background"))
         .navigationDestination(isPresented: $isNavigation) {
             GithubSearchResultView(searchItems: searchItems)
