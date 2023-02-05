@@ -46,12 +46,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC954367298EB1B90099BFAA /* Modifier */ = {
+		AC954367298EB1B90099BFAA /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				AC954368298EB1C60099BFAA /* FullFrameModifier.swift */,
 			);
-			path = Modifier;
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		ACC157B5298BF6370092C884 = {
@@ -101,7 +101,7 @@
 		ACC157ED298D40D80092C884 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AC954367298EB1B90099BFAA /* Modifier */,
+				AC954367298EB1B90099BFAA /* Modifiers */,
 				ACE2C63C298D5453001E13F3 /* LaunchScreenView.swift */,
 				ACC157C3298BF6370092C884 /* GithubSearchView.swift */,
 				ACC157EF298D41380092C884 /* GithubSearchResultView.swift */,
