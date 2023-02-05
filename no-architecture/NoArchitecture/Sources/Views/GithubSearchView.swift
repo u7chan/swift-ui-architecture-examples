@@ -13,6 +13,7 @@ struct GithubSearchView: View {
     @State private var inputText: String = ""
     @State private var loading: Bool = false
     @State private var noSearchResult: Bool = false
+    @State private var invalidInput: Bool = false
     @State private var searchItems: [SearchItem] = []
 
     var body: some View {
@@ -27,7 +28,8 @@ struct GithubSearchView: View {
                 TextField("Search...", text: $inputText)
                     .onSubmit {
                         let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
-                        if srcInputText.isEmpty {
+                        invalidInput = srcInputText.isEmpty || gitHubUserNameValidator(srcInputText)
+                        if invalidInput {
                             return
                         }
                         loading = true
@@ -47,6 +49,10 @@ struct GithubSearchView: View {
                     .submitLabel(.done)
             }
             .padding()
+            if invalidInput {
+                Text("Invalid username")
+                    .foregroundColor(Color.red)
+            }
             if noSearchResult {
                 Text("Not found.")
             }
@@ -64,4 +70,12 @@ struct GithubSearchView_Previews: PreviewProvider {
     static var previews: some View {
         GithubSearchView()
     }
+}
+
+private func gitHubUserNameValidator(_ userName: String) -> Bool {
+    let maxSize = 39
+    let pattern = "^[a-zA-Z0-9]([a-zA-Z0-9]?|[\\-]?([a-zA-Z0-9])){0,\(maxSize - 1)}$"
+    guard let regex = try? NSRegularExpression(pattern: pattern) else { return true }
+    let matcher = regex.matches(in: userName, range: NSRange(location: 0, length: userName.count))
+    return matcher.count == 0
 }
