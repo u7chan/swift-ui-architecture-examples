@@ -12,6 +12,7 @@ struct GithubSearchView: View {
 
     @State private var inputText: String = ""
     @State private var loading: Bool = false
+    @State private var noSearchResult: Bool = false
     @State private var searchItems: [SearchItem] = []
 
     var body: some View {
@@ -32,8 +33,12 @@ struct GithubSearchView: View {
                         loading = true
                         GithubAPI.searchRepositories(srcInputText) {
                             loading = false
-                            isNavigation = true
+                            noSearchResult = $0.isEmpty
+                            if $0.isEmpty {
+                                return
+                            }
                             searchItems = $0
+                            isNavigation = true
                         }
                     }
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -42,6 +47,9 @@ struct GithubSearchView: View {
                     .submitLabel(.done)
             }
             .padding()
+            if noSearchResult {
+                Text("Not found.")
+            }
         }
         .modifier(FullFrameModifier())
         .padding()
