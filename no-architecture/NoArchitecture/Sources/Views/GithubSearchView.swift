@@ -71,4 +71,3 @@ struct GithubSearchView_Previews: PreviewProvider {
         GithubSearchView()
     }
 }
-
