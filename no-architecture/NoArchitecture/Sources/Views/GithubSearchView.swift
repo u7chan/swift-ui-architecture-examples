@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct GithubSearchView: View {
-    @State private(set) var isNavigation = false
-
+    @State private var isNavigation = false
     @State private var inputText: String = ""
     @State private var loading: Bool = false
     @State private var noSearchResult: Bool = false

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    @State private(set) var isNavigation = false
+    @State private var isNavigation = false
 
     var body: some View {
         ZStack {
