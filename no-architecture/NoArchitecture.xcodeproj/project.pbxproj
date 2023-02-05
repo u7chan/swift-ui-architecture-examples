@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC4E0F82298FEBD3008BFCC1 /* GithubUserNameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E0F81298FEBD3008BFCC1 /* GithubUserNameValidator.swift */; };
 		AC954369298EB1C60099BFAA /* FullFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC954368298EB1C60099BFAA /* FullFrameModifier.swift */; };
 		ACC157C2298BF6370092C884 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC157C1298BF6370092C884 /* MainApp.swift */; };
 		ACC157C4298BF6370092C884 /* GithubSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC157C3298BF6370092C884 /* GithubSearchView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC4E0F81298FEBD3008BFCC1 /* GithubUserNameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserNameValidator.swift; sourceTree = "<group>"; };
 		AC954368298EB1C60099BFAA /* FullFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFrameModifier.swift; sourceTree = "<group>"; };
 		ACC157BE298BF6370092C884 /* NoArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC157C1298BF6370092C884 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE2C63F298D59D0001E13F3 /* GithubAPI.swift */,
+				AC4E0F81298FEBD3008BFCC1 /* GithubUserNameValidator.swift */,
 				ACE2C641298D5AFE001E13F3 /* SearchItem.swift */,
 				ACE2C643298D5B74001E13F3 /* Decodable+decode.swift */,
 			);
@@ -197,6 +200,7 @@
 				AC954369298EB1C60099BFAA /* FullFrameModifier.swift in Sources */,
 				ACC157C2298BF6370092C884 /* MainApp.swift in Sources */,
 				ACE2C639298D4402001E13F3 /* GithubDetailView.swift in Sources */,
+				AC4E0F82298FEBD3008BFCC1 /* GithubUserNameValidator.swift in Sources */,
 				ACE2C642298D5AFE001E13F3 /* SearchItem.swift in Sources */,
 				ACC157F0298D41380092C884 /* GithubSearchResultView.swift in Sources */,
 			);

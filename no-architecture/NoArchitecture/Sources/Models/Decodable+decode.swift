@@ -1,6 +1,6 @@
 //
 //  Decodable+decode.swift
-//  NoArchitecture
+//  Models
 //
 //  Created by unagami on 2023/02/04.
 //
