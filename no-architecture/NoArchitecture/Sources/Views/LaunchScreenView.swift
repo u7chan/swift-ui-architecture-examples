@@ -12,7 +12,7 @@ struct LaunchScreenView: View {
 
     var body: some View {
         ZStack {
-            Text("Example")
+            Text("Example App")
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         isNavigation = true
