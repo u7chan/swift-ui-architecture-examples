@@ -7,6 +7,4 @@
 
 import Foundation
 
-final class GithubDetailViewModel: ObservableObject {
-
-}
+final class GithubDetailViewModel: ObservableObject {}

@@ -8,5 +8,5 @@
 import Foundation
 
 final class GithubSearchResultViewModel: ObservableObject {
-
+    @Published var searchItems: [SearchItem] = []
 }

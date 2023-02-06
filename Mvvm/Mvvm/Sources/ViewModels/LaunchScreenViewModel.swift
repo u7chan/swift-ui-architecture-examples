@@ -9,7 +9,6 @@ import Combine
 import Dispatch
 
 final class LaunchScreenViewModel: ObservableObject {
-
     @Published var isNavigation = false
 
     func onAppear() {

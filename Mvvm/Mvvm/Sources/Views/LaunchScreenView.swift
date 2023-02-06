@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    
     @ObservedObject private var viewModel: LaunchScreenViewModel
 
     init(viewModel: LaunchScreenViewModel = LaunchScreenViewModel()) {

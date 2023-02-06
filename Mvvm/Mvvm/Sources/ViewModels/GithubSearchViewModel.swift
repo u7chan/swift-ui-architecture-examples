@@ -8,14 +8,13 @@
 import Foundation
 
 final class GithubSearchViewModel: ObservableObject {
-
     @Published var isNavigation = false
     @Published var inputText = ""
 
-    @Published private (set) var loading = false
-    @Published private (set) var noSearchResult = false
-    @Published private (set) var invalidInput = false
-    @Published private (set) var searchItems: [SearchItem] = []
+    @Published private(set) var loading = false
+    @Published private(set) var noSearchResult = false
+    @Published private(set) var invalidInput = false
+    @Published private(set) var searchItems: [SearchItem] = []
 
     func onSubmit() {
         let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
@@ -34,5 +33,4 @@ final class GithubSearchViewModel: ObservableObject {
             self.isNavigation = true
         }
     }
-
 }

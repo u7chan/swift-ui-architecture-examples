@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GithubSearchView: View {
-
     @ObservedObject private var viewModel: GithubSearchViewModel
 
     init(viewModel: GithubSearchViewModel = GithubSearchViewModel()) {
@@ -46,7 +45,7 @@ struct GithubSearchView: View {
         .padding()
         .background(Color("Background"))
         .navigationDestination(isPresented: $viewModel.isNavigation) {
-            GithubSearchResultView(searchItems: viewModel.searchItems)
+            GithubSearchResultView()
         }
     }
 }

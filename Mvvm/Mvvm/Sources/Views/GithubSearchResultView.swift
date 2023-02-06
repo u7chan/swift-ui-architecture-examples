@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct GithubSearchResultView: View {
-
     @ObservedObject private var viewModel: GithubSearchResultViewModel
 
-    private let searchItems: [SearchItem]
-
-    init(searchItems: [SearchItem], viewModel: GithubSearchResultViewModel = GithubSearchResultViewModel()) {
-        self.searchItems = searchItems
+    init(viewModel: GithubSearchResultViewModel = GithubSearchResultViewModel()) {
         self.viewModel = viewModel
     }
 
     var body: some View {
         VStack {
             List {
-                ForEach(searchItems, id: \.self) { item in
+                ForEach(viewModel.searchItems, id: \.self) { item in
                     NavigationLink(destination: {
                         GithubDetailView(searchItem: item)
                     }) {
@@ -39,10 +35,6 @@ struct GithubSearchResultView: View {
 
 struct GithubSearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        GithubSearchResultView(searchItems: [SearchItem(id: 1,
-                                                        name: "Dummy",
-                                                        language: "Swift",
-                                                        stargazers_count: 1,
-                                                        watchers_count: 10)])
+        GithubSearchResultView()
     }
 }

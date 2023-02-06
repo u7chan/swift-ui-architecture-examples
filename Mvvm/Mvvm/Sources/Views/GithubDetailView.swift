@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GithubDetailView: View {
-
     @ObservedObject private var viewModel: GithubDetailViewModel
 
     private let searchItem: SearchItem
