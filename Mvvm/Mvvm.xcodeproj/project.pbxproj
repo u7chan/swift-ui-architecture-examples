@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC29FC69299136C500298B22 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC68299136C500298B22 /* MainApp.swift */; };
-		AC29FC6B299136C500298B22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC6A299136C500298B22 /* ContentView.swift */; };
 		AC29FC6D299136C700298B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29FC6C299136C700298B22 /* Assets.xcassets */; };
 		AC29FC70299136C700298B22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29FC6F299136C700298B22 /* Preview Assets.xcassets */; };
 		AC29FC992991392C00298B22 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC952991392C00298B22 /* GithubAPI.swift */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		AC29FC65299136C500298B22 /* Mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mvvm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29FC68299136C500298B22 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
-		AC29FC6A299136C500298B22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC29FC6C299136C700298B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC29FC6F299136C700298B22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC29FC952991392C00298B22 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				AC29FC92299137CD00298B22 /* Sources */,
-				AC29FC6A299136C500298B22 /* ContentView.swift */,
 				AC29FC6C299136C700298B22 /* Assets.xcassets */,
 				AC29FC6E299136C700298B22 /* Preview Content */,
 			);
@@ -197,7 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC29FC9C2991392C00298B22 /* SearchItem.swift in Sources */,
-				AC29FC6B299136C500298B22 /* ContentView.swift in Sources */,
 				AC29FCA4299139A600298B22 /* GithubSearchResultView.swift in Sources */,
 				AC29FCA3299139A600298B22 /* GithubSearchView.swift in Sources */,
 				AC29FCA929913A0700298B22 /* FullFrameModifier.swift in Sources */,
