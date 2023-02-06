@@ -12,9 +12,9 @@ final class GithubSearchViewModel: ObservableObject {
     @Published var isNavigation = false
     @Published var inputText = ""
 
-    @Published private (set) var loading: Bool = false
-    @Published private (set) var noSearchResult: Bool = false
-    @Published private (set) var invalidInput: Bool = false
+    @Published private (set) var loading = false
+    @Published private (set) var noSearchResult = false
+    @Published private (set) var invalidInput = false
     @Published private (set) var searchItems: [SearchItem] = []
 
     func onSubmit() {
