@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GithubSearchResultView: View {
     private let searchItems: [SearchItem]
+    @State private var searchItem: SearchItem?
+    @State private var isNavigation = false
 
     init(searchItems: [SearchItem]) {
         self.searchItems = searchItems
@@ -16,13 +18,19 @@ struct GithubSearchResultView: View {
 
     var body: some View {
         VStack {
-            List {
-                ForEach(searchItems, id: \.self) { item in
-                    NavigationLink(destination: {
-                        GithubDetailView(searchItem: item)
-                    }) {
+            NavigationStack {
+                List {
+                    ForEach(searchItems) { item in
                         Text(item.name)
+                            .onTapGesture {
+                                searchItem = item
+                                isNavigation = true
+                            }
                     }
+                }
+            }.navigationDestination(isPresented: $isNavigation) {
+                if let searchItem {
+                    GithubDetailView(searchItem: searchItem)
                 }
             }
         }
