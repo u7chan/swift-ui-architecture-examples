@@ -10,34 +10,35 @@ import SwiftUI
 struct GithubDetailView: View {
     @ObservedObject private var viewModel: GithubDetailViewModel
 
-    private let searchItem: SearchItem
-
     init(viewModel: GithubDetailViewModel = GithubDetailViewModel()) {
-        self.searchItem = SearchItem(id: 1, name: "ab", language: "bb", stargazers_count: 1, watchers_count: 1)
         self.viewModel = viewModel
     }
 
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text("id: ")
-                    Text("\(String(searchItem.id))")
-                }
-                HStack {
-                    Text("name: ")
-                    Text(searchItem.name)
-                }
-                HStack {
-                    Text("language: ")
-                    Text(searchItem.language ?? "")
+        if let searchItem = viewModel.searchItem {
+            ZStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text("id: ")
+                        Text("\(String(searchItem.id))")
+                    }
+                    HStack {
+                        Text("name: ")
+                        Text(searchItem.name)
+                    }
+                    HStack {
+                        Text("language: ")
+                        Text(searchItem.language ?? "")
+                    }
                 }
             }
+            .modifier(FullFrameModifier())
+            .navigationTitle(searchItem.name)
+            .navigationBarTitleDisplayMode(.inline)
+            .background(Color("Background"))
+        } else {
+            ProgressView()
         }
-        .modifier(FullFrameModifier())
-        .navigationTitle(searchItem.name)
-        .navigationBarTitleDisplayMode(.inline)
-        .background(Color("Background"))
     }
 }
 

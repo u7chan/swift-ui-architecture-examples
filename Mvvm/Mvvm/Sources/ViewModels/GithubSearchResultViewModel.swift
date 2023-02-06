@@ -12,9 +12,11 @@ final class GithubSearchResultViewModel: ObservableObject {
     @Published var isNavigation = false
 
     private var cancellable = [AnyCancellable]()
+    private let searchItemRepository: SearchItemRepository
 
     init(searchItemRepository: SearchItemRepository = DI.singleton.searchItemRepository) {
-        searchItemRepository.fetchSearchItem()
+        self.searchItemRepository = searchItemRepository
+        self.searchItemRepository.fetchSearchItems()
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -28,8 +30,8 @@ final class GithubSearchResultViewModel: ObservableObject {
             }.store(in: &cancellable)
     }
 
-    func onRowTapped() {
-        print("#onRowTapped")
+    func onRowTapped(item: SearchItem) {
+        searchItemRepository.postSearchItem(item: item)
         isNavigation = true
     }
 }

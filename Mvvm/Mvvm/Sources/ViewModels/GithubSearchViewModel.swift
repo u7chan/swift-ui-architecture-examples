@@ -34,7 +34,7 @@ final class GithubSearchViewModel: ObservableObject {
             if items.isEmpty {
                 return
             }
-            self.searchItemRepository.postSearchItem(items: items)
+            self.searchItemRepository.postSearchItems(items: items)
             self.isNavigation = true
         }
     }
