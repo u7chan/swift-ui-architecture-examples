@@ -24,6 +24,7 @@
 		AC29FCB029913AC900298B22 /* GithubSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FCAF29913AC900298B22 /* GithubSearchResultViewModel.swift */; };
 		AC29FCB229913AD300298B22 /* GithubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FCB129913AD200298B22 /* GithubDetailViewModel.swift */; };
 		AC775D79299141710000858B /* SearchItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC775D78299141710000858B /* SearchItemRepository.swift */; };
+		AC775D7B299148090000858B /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC775D7A299148090000858B /* DI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		AC29FCAF29913AC900298B22 /* GithubSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchResultViewModel.swift; sourceTree = "<group>"; };
 		AC29FCB129913AD200298B22 /* GithubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubDetailViewModel.swift; sourceTree = "<group>"; };
 		AC775D78299141710000858B /* SearchItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemRepository.swift; sourceTree = "<group>"; };
+		AC775D7A299148090000858B /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				AC29FC962991392C00298B22 /* GithubUserNameValidator.swift */,
 				AC29FC982991392C00298B22 /* SearchItem.swift */,
 				AC775D78299141710000858B /* SearchItemRepository.swift */,
+				AC775D7A299148090000858B /* DI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC775D7B299148090000858B /* DI.swift in Sources */,
 				AC29FC9C2991392C00298B22 /* SearchItem.swift in Sources */,
 				AC775D79299141710000858B /* SearchItemRepository.swift in Sources */,
 				AC29FCA4299139A600298B22 /* GithubSearchResultView.swift in Sources */,

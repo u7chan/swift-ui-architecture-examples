@@ -14,7 +14,12 @@ final class GithubSearchViewModel: ObservableObject {
     @Published private(set) var loading = false
     @Published private(set) var noSearchResult = false
     @Published private(set) var invalidInput = false
-    @Published private(set) var searchItems: [SearchItem] = []
+
+    private let searchItemRepository: SearchItemRepository
+
+    init(searchItemRepository: SearchItemRepository = DI.singleton.searchItemRepository) {
+        self.searchItemRepository = searchItemRepository
+    }
 
     func onSubmit() {
         let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
@@ -23,13 +28,13 @@ final class GithubSearchViewModel: ObservableObject {
             return
         }
         loading = true
-        GithubAPI.searchRepositories(srcInputText) {
+        GithubAPI.searchRepositories(srcInputText) { items in
             self.loading = false
-            self.noSearchResult = $0.isEmpty
-            if $0.isEmpty {
+            self.noSearchResult = items.isEmpty
+            if items.isEmpty {
                 return
             }
-            self.searchItems = $0
+            self.searchItemRepository.postSearchItem(items: items)
             self.isNavigation = true
         }
     }

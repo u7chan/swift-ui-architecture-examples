@@ -13,12 +13,21 @@ enum SearchItemRepositoryError: Error {
 
 protocol SearchItemRepository {
     func fetchSearchItem() -> AnyPublisher<[SearchItem], SearchItemRepositoryError>
+    func postSearchItem(items: [SearchItem])
 }
 
 final class SearchItemRepositoryImpl: SearchItemRepository {
+
+    private var cacheitems: [SearchItem] = []
+
     func fetchSearchItem() -> AnyPublisher<[SearchItem], SearchItemRepositoryError> {
         return Future<[SearchItem], SearchItemRepositoryError> { promise in
-            promise(.success([]))
+            promise(.success(self.cacheitems))
         }.eraseToAnyPublisher()
     }
+
+    func postSearchItem(items: [SearchItem]) {
+        cacheitems = items
+    }
 }
+

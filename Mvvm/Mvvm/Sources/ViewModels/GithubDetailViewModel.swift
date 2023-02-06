@@ -6,5 +6,14 @@
 //
 
 import Foundation
+import Dispatch
 
-final class GithubDetailViewModel: ObservableObject {}
+final class GithubDetailViewModel: ObservableObject {
+    @Published var text = ""
+
+    init() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.text = "Hello"
+        }
+    }
+}

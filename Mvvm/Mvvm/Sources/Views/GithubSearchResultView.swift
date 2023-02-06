@@ -17,7 +17,7 @@ struct GithubSearchResultView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(viewModel.searchItems, id: \.self) { item in
+                ForEach(viewModel.searchItems) { item in
                     NavigationLink(destination: {
                         GithubDetailView(searchItem: item)
                     }) {
