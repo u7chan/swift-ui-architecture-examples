@@ -51,6 +51,7 @@
 		AC29FC67299136C500298B22 /* Mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				AC29FC92299137CD00298B22 /* Sources */,
 				AC29FC68299136C500298B22 /* MvvmApp.swift */,
 				AC29FC6A299136C500298B22 /* ContentView.swift */,
 				AC29FC6C299136C700298B22 /* Assets.xcassets */,
@@ -65,6 +66,13 @@
 				AC29FC6F299136C700298B22 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC29FC92299137CD00298B22 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
