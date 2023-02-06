@@ -104,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				AC954367298EB1B90099BFAA /* Modifiers */,
-				ACE2C63C298D5453001E13F3 /* LaunchScreenView.swift */,
-				ACC157C3298BF6370092C884 /* GithubSearchView.swift */,
-				ACC157EF298D41380092C884 /* GithubSearchResultView.swift */,
 				ACE2C638298D4402001E13F3 /* GithubDetailView.swift */,
+				ACC157EF298D41380092C884 /* GithubSearchResultView.swift */,
+				ACC157C3298BF6370092C884 /* GithubSearchView.swift */,
+				ACE2C63C298D5453001E13F3 /* LaunchScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,10 +115,10 @@
 		ACE2C63E298D59BE001E13F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACE2C643298D5B74001E13F3 /* Decodable+decode.swift */,
 				ACE2C63F298D59D0001E13F3 /* GithubAPI.swift */,
 				AC4E0F81298FEBD3008BFCC1 /* GithubUserNameValidator.swift */,
 				ACE2C641298D5AFE001E13F3 /* SearchItem.swift */,
-				ACE2C643298D5B74001E13F3 /* Decodable+decode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
