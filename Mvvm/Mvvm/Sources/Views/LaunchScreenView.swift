@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    @State private var isNavigation = false
-
-    private let viewModel: LaunchScreenViewModel
+    
+    @ObservedObject private var viewModel: LaunchScreenViewModel
 
     init(viewModel: LaunchScreenViewModel = LaunchScreenViewModel()) {
         self.viewModel = viewModel
@@ -20,11 +19,9 @@ struct LaunchScreenView: View {
         ZStack {
             Text("Example App")
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isNavigation = true
-                    }
+                    viewModel.onAppear()
                 }
-                .navigationDestination(isPresented: $isNavigation) {
+                .navigationDestination(isPresented: $viewModel.isNavigation) {
                     GithubSearchView()
                         .navigationBarBackButtonHidden(true)
                 }
