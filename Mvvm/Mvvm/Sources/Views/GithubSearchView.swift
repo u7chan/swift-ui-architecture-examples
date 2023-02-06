@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct GithubSearchView: View {
+
+    @ObservedObject private var viewModel: GithubSearchViewModel
+
+    init(viewModel: GithubSearchViewModel = GithubSearchViewModel()) {
+        self.viewModel = viewModel
+    }
+
     @State private var isNavigation = false
     @State private var inputText: String = ""
     @State private var loading: Bool = false

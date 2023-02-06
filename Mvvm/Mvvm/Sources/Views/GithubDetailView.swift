@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct GithubDetailView: View {
+
+    @ObservedObject private var viewModel: GithubDetailViewModel
+
     private let searchItem: SearchItem
 
-    init(searchItem: SearchItem) {
+    init(searchItem: SearchItem, viewModel: GithubDetailViewModel = GithubDetailViewModel()) {
         self.searchItem = searchItem
+        self.viewModel = viewModel
     }
 
     var body: some View {
