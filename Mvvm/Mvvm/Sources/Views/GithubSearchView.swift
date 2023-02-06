@@ -15,39 +15,18 @@ struct GithubSearchView: View {
         self.viewModel = viewModel
     }
 
-    @State private var isNavigation = false
-    @State private var inputText: String = ""
-    @State private var loading: Bool = false
-    @State private var noSearchResult: Bool = false
-    @State private var invalidInput: Bool = false
-    @State private var searchItems: [SearchItem] = []
-
     var body: some View {
         VStack {
-            if loading {
+            if viewModel.loading {
                 ProgressView()
             } else {
                 Image("GithubIcon")
             }
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("Search...", text: $inputText)
+                TextField("Search...", text: $viewModel.inputText)
                     .onSubmit {
-                        let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
-                        invalidInput = srcInputText.isEmpty || githubUserNameValidator(srcInputText)
-                        if invalidInput {
-                            return
-                        }
-                        loading = true
-                        GithubAPI.searchRepositories(srcInputText) {
-                            loading = false
-                            noSearchResult = $0.isEmpty
-                            if $0.isEmpty {
-                                return
-                            }
-                            searchItems = $0
-                            isNavigation = true
-                        }
+                        viewModel.onSubmit()
                     }
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
@@ -55,19 +34,19 @@ struct GithubSearchView: View {
                     .submitLabel(.done)
             }
             .padding()
-            if invalidInput {
+            if viewModel.invalidInput {
                 Text("Invalid username")
                     .foregroundColor(Color.red)
             }
-            if noSearchResult {
+            if viewModel.noSearchResult {
                 Text("Not found.")
             }
         }
         .modifier(FullFrameModifier())
         .padding()
         .background(Color("Background"))
-        .navigationDestination(isPresented: $isNavigation) {
-            GithubSearchResultView(searchItems: searchItems)
+        .navigationDestination(isPresented: $viewModel.isNavigation) {
+            GithubSearchResultView(searchItems: viewModel.searchItems)
         }
     }
 }
