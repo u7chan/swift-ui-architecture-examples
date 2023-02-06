@@ -10,6 +10,12 @@ import SwiftUI
 struct LaunchScreenView: View {
     @State private var isNavigation = false
 
+    private let viewModel: LaunchScreenViewModel
+
+    init(viewModel: LaunchScreenViewModel = LaunchScreenViewModel()) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         ZStack {
             Text("Example App")
