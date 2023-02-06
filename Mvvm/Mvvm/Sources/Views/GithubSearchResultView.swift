@@ -16,14 +16,17 @@ struct GithubSearchResultView: View {
 
     var body: some View {
         VStack {
-            List {
-                ForEach(viewModel.searchItems) { item in
-                    NavigationLink(destination: {
-                        GithubDetailView(searchItem: item)
-                    }) {
+            NavigationStack {
+                List {
+                    ForEach(viewModel.searchItems) { item in
                         Text(item.name)
+                            .onTapGesture {
+                                viewModel.onRowTapped()
+                            }
                     }
                 }
+            }.navigationDestination(isPresented: $viewModel.isNavigation) {
+                GithubDetailView()
             }
         }
         .scrollContentBackground(.hidden)

@@ -12,8 +12,8 @@ struct GithubDetailView: View {
 
     private let searchItem: SearchItem
 
-    init(searchItem: SearchItem, viewModel: GithubDetailViewModel = GithubDetailViewModel()) {
-        self.searchItem = searchItem
+    init(viewModel: GithubDetailViewModel = GithubDetailViewModel()) {
+        self.searchItem = SearchItem(id: 1, name: "ab", language: "bb", stargazers_count: 1, watchers_count: 1)
         self.viewModel = viewModel
     }
 
@@ -43,10 +43,6 @@ struct GithubDetailView: View {
 
 struct GithubDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GithubDetailView(searchItem: SearchItem(id: 1,
-                                                name: "Dummy",
-                                                language: "Swift",
-                                                stargazers_count: 1,
-                                                watchers_count: 10))
+        GithubDetailView()
     }
 }

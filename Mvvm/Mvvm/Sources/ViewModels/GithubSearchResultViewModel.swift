@@ -9,6 +9,7 @@ import Combine
 
 final class GithubSearchResultViewModel: ObservableObject {
     @Published var searchItems: [SearchItem] = []
+    @Published var isNavigation = false
 
     private var cancellable = [AnyCancellable]()
 
@@ -26,5 +27,9 @@ final class GithubSearchResultViewModel: ObservableObject {
                 self.searchItems = items
             }.store(in: &cancellable)
     }
-    
+
+    func onRowTapped() {
+        print("#onRowTapped")
+        isNavigation = true
+    }
 }

@@ -17,7 +17,6 @@ protocol SearchItemRepository {
 }
 
 final class SearchItemRepositoryImpl: SearchItemRepository {
-
     private var cacheitems: [SearchItem] = []
 
     func fetchSearchItem() -> AnyPublisher<[SearchItem], SearchItemRepositoryError> {
@@ -30,4 +29,3 @@ final class SearchItemRepositoryImpl: SearchItemRepository {
         cacheitems = items
     }
 }
-

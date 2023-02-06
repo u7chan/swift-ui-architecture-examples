@@ -5,8 +5,8 @@
 //  Created by unagami on 2023/02/06.
 //
 
-import Foundation
 import Dispatch
+import Foundation
 
 final class GithubDetailViewModel: ObservableObject {
     @Published var text = ""
