@@ -8,9 +8,9 @@
 import Foundation
 
 final class GithubSearchViewModel: ObservableObject {
-    @Published var isNavigation = false
-    @Published var inputText = ""
+    var inputText = ""
 
+    @Published var isNavigation = false
     @Published private(set) var loading = false
     @Published private(set) var noSearchResult = false
     @Published private(set) var invalidInput = false
