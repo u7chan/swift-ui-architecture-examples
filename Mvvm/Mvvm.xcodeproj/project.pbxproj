@@ -11,6 +11,10 @@
 		AC29FC6B299136C500298B22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC6A299136C500298B22 /* ContentView.swift */; };
 		AC29FC6D299136C700298B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29FC6C299136C700298B22 /* Assets.xcassets */; };
 		AC29FC70299136C700298B22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29FC6F299136C700298B22 /* Preview Assets.xcassets */; };
+		AC29FC992991392C00298B22 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC952991392C00298B22 /* GithubAPI.swift */; };
+		AC29FC9A2991392C00298B22 /* GithubUserNameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC962991392C00298B22 /* GithubUserNameValidator.swift */; };
+		AC29FC9B2991392C00298B22 /* Decodable+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC972991392C00298B22 /* Decodable+decode.swift */; };
+		AC29FC9C2991392C00298B22 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29FC982991392C00298B22 /* SearchItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		AC29FC6A299136C500298B22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC29FC6C299136C700298B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC29FC6F299136C700298B22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC29FC952991392C00298B22 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		AC29FC962991392C00298B22 /* GithubUserNameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUserNameValidator.swift; sourceTree = "<group>"; };
+		AC29FC972991392C00298B22 /* Decodable+decode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+decode.swift"; sourceTree = "<group>"; };
+		AC29FC982991392C00298B22 /* SearchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				AC29FC92299137CD00298B22 /* Sources */,
-				AC29FC68299136C500298B22 /* MvvmApp.swift */,
 				AC29FC6A299136C500298B22 /* ContentView.swift */,
 				AC29FC6C299136C700298B22 /* Assets.xcassets */,
 				AC29FC6E299136C700298B22 /* Preview Content */,
@@ -71,8 +78,29 @@
 		AC29FC92299137CD00298B22 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AC29FC93299138BE00298B22 /* Models */,
+				AC29FC94299138C800298B22 /* Views */,
+				AC29FC68299136C500298B22 /* MvvmApp.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		AC29FC93299138BE00298B22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC29FC972991392C00298B22 /* Decodable+decode.swift */,
+				AC29FC952991392C00298B22 /* GithubAPI.swift */,
+				AC29FC962991392C00298B22 /* GithubUserNameValidator.swift */,
+				AC29FC982991392C00298B22 /* SearchItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC29FC94299138C800298B22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC29FC9C2991392C00298B22 /* SearchItem.swift in Sources */,
 				AC29FC6B299136C500298B22 /* ContentView.swift in Sources */,
+				AC29FC9A2991392C00298B22 /* GithubUserNameValidator.swift in Sources */,
+				AC29FC992991392C00298B22 /* GithubAPI.swift in Sources */,
 				AC29FC69299136C500298B22 /* MvvmApp.swift in Sources */,
+				AC29FC9B2991392C00298B22 /* Decodable+decode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
