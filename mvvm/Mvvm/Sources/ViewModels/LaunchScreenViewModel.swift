@@ -11,7 +11,7 @@ import Dispatch
 final class LaunchScreenViewModel: ObservableObject {
     @Published var shouldNavigate = false
 
-    func onAppear() {
+    func delayNavigation() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.shouldNavigate = true
         }

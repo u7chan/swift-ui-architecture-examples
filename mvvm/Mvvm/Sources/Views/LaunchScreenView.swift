@@ -18,7 +18,7 @@ struct LaunchScreenView: View {
         ZStack {
             Text("Example App")
                 .onAppear {
-                    viewModel.onAppear()
+                    viewModel.delayNavigation()
                 }
                 .navigationDestination(isPresented: $viewModel.shouldNavigate) {
                     GithubSearchView()
