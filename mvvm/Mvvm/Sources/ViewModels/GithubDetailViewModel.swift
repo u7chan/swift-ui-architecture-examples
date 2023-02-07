@@ -6,14 +6,21 @@
 //
 
 import Combine
+import Dispatch
 
 final class GithubDetailViewModel: ObservableObject {
     @Published var searchItem: SearchItem?
 
     private var cancellable = [AnyCancellable]()
+    private let searchItemRepository: SearchItemRepository
 
     init(searchItemRepository: SearchItemRepository = DI.singleton.searchItemRepository) {
+        self.searchItemRepository = searchItemRepository
+    }
+
+    func fetch() {
         searchItemRepository.fetchSearchItem()
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:

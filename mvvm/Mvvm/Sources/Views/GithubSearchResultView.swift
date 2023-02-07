@@ -16,16 +16,23 @@ struct GithubSearchResultView: View {
 
     var body: some View {
         VStack {
+//            Button {
+//                viewModel.fetch()
+//            } label: {
+//                Text("Fetch")
+//            }
             NavigationStack {
-                List {
-                    ForEach(viewModel.searchItems) { item in
-                        Text(item.name)
-                            .onTapGesture {
-                                viewModel.rowTapped(item: item)
-                            }
-                    }
+                List($viewModel.searchItems) { $item in
+                    Text(item.name)
+                        .onTapGesture {
+                            viewModel.rowTapped(item: item)
+                        }
                 }
-            }.navigationDestination(isPresented: $viewModel.shouldNavigate) {
+                .onAppear {
+                    viewModel.fetch() // !!! Not working データは取得されるが再描画されない !!!
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.shouldNavigate) {
                 GithubDetailView()
             }
         }

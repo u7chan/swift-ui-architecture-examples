@@ -32,6 +32,9 @@ struct GithubDetailView: View {
                     }
                 }
             }
+            .onAppear {
+                viewModel.fetch()
+            }
             .modifier(FullFrameModifier())
             .navigationTitle(searchItem.name)
             .navigationBarTitleDisplayMode(.inline)
