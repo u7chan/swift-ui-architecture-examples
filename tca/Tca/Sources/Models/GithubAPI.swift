@@ -11,7 +11,7 @@ import Foundation
 
 struct GithubAPIError: Error, Equatable {}
 
-enum GithubAPI {
+struct GithubAPI {
     static func searchRepositories(_ searchText: String) -> EffectPublisher<[SearchItem], GithubAPIError> {
         let url = "https://api.github.com/users/\(searchText)/repos?per_page=100&page=1&sort=created&direction=desc"
         return URLSession.shared.dataTaskPublisher(for: URL(string: url)!)
