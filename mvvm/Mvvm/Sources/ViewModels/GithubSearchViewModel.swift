@@ -23,7 +23,7 @@ final class GithubSearchViewModel: ObservableObject {
         self.searchItemRepository = searchItemRepository
     }
 
-    func onSubmit() {
+    func searchText() {
         let srcInputText = inputText.trimmingCharacters(in: .whitespaces)
         invalidInput = srcInputText.isEmpty || githubUserNameValidator(srcInputText)
         if invalidInput {

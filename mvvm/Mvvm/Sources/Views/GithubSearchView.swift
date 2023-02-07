@@ -25,7 +25,7 @@ struct GithubSearchView: View {
                 Image(systemName: "magnifyingglass")
                 TextField("Search...", text: $viewModel.inputText)
                     .onSubmit {
-                        viewModel.onSubmit()
+                        viewModel.searchText()
                     }
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
