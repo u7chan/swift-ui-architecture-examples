@@ -9,11 +9,11 @@ import Combine
 import Dispatch
 
 final class LaunchScreenViewModel: ObservableObject {
-    @Published var isNavigation = false
+    @Published var shouldNavigate = false
 
     func onAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.isNavigation = true
+            self.shouldNavigate = true
         }
     }
 }

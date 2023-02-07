@@ -46,7 +46,7 @@ struct GithubSearchView: View {
             .modifier(FullFrameModifier())
             .padding()
             .background(Color("Background"))
-            .navigationDestination(isPresented: viewStore.binding(get: \.isNavigation, send: SearchReducer.Action.navigation), destination: {
+            .navigationDestination(isPresented: viewStore.binding(get: \.shouldNavigate, send: SearchReducer.Action.navigation), destination: {
                 GithubSearchResultView(searchItems: viewStore.searchItems)
             })
         }

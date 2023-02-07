@@ -25,7 +25,7 @@ struct GithubSearchResultView: View {
                             }
                     }
                 }
-            }.navigationDestination(isPresented: $viewModel.isNavigation) {
+            }.navigationDestination(isPresented: $viewModel.shouldNavigate) {
                 GithubDetailView()
             }
         }

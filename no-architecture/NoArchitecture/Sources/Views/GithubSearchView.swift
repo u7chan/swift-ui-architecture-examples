@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GithubSearchView: View {
-    @State private var isNavigation = false
+    @State private var shouldNavigate = false
     @State private var inputText = ""
     @State private var loading = false
     @State private var noSearchResult = false
@@ -39,7 +39,7 @@ struct GithubSearchView: View {
                                 return
                             }
                             searchItems = $0
-                            isNavigation = true
+                            shouldNavigate = true
                         }
                     }
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -59,7 +59,7 @@ struct GithubSearchView: View {
         .modifier(FullFrameModifier())
         .padding()
         .background(Color("Background"))
-        .navigationDestination(isPresented: $isNavigation) {
+        .navigationDestination(isPresented: $shouldNavigate) {
             GithubSearchResultView(searchItems: searchItems)
         }
     }

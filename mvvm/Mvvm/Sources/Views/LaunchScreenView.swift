@@ -20,7 +20,7 @@ struct LaunchScreenView: View {
                 .onAppear {
                     viewModel.onAppear()
                 }
-                .navigationDestination(isPresented: $viewModel.isNavigation) {
+                .navigationDestination(isPresented: $viewModel.shouldNavigate) {
                     GithubSearchView()
                         .navigationBarBackButtonHidden(true)
                 }

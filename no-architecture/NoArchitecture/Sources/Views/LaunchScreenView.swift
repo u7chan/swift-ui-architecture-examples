@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    @State private var isNavigation = false
+    @State private var shouldNavigate = false
 
     var body: some View {
         ZStack {
             Text("Example App")
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isNavigation = true
+                        shouldNavigate = true
                     }
                 }
-                .navigationDestination(isPresented: $isNavigation) {
+                .navigationDestination(isPresented: $shouldNavigate) {
                     GithubSearchView()
                         .navigationBarBackButtonHidden(true)
                 }

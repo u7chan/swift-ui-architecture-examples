@@ -11,7 +11,7 @@ import Dispatch
 final class GithubSearchViewModel: ObservableObject {
     var inputText = ""
 
-    @Published var isNavigation = false
+    @Published var shouldNavigate = false
     @Published private(set) var loading = false
     @Published private(set) var noSearchResult = false
     @Published private(set) var invalidInput = false
@@ -47,7 +47,7 @@ final class GithubSearchViewModel: ObservableObject {
                     return
                 }
                 self.searchItemRepository.postSearchItems(items: items)
-                self.isNavigation = true
+                self.shouldNavigate = true
             }.store(in: &cancellable)
     }
 }

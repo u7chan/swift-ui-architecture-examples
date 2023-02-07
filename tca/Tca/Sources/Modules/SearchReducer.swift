@@ -16,7 +16,7 @@ struct SearchReducer: ReducerProtocol {
         var loading = false
         var noSearchResult = false
         var searchItems: [SearchItem] = []
-        var isNavigation = false
+        var shouldNavigate = false
 
         enum Route: Equatable, Hashable {
             case navigateToResult
@@ -62,7 +62,7 @@ struct SearchReducer: ReducerProtocol {
             return .none
 
         case .navigation:
-            state.isNavigation.toggle()
+            state.shouldNavigate.toggle()
             return .none
         }
     }

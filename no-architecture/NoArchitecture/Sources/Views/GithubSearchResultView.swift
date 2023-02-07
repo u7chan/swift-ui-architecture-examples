@@ -10,7 +10,7 @@ import SwiftUI
 struct GithubSearchResultView: View {
     private let searchItems: [SearchItem]
     @State private var searchItem: SearchItem?
-    @State private var isNavigation = false
+    @State private var shouldNavigate = false
 
     init(searchItems: [SearchItem]) {
         self.searchItems = searchItems
@@ -24,11 +24,11 @@ struct GithubSearchResultView: View {
                         Text(item.name)
                             .onTapGesture {
                                 searchItem = item
-                                isNavigation = true
+                                shouldNavigate = true
                             }
                     }
                 }
-            }.navigationDestination(isPresented: $isNavigation) {
+            }.navigationDestination(isPresented: $shouldNavigate) {
                 if let searchItem {
                     GithubDetailView(searchItem: searchItem)
                 }

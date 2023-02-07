@@ -9,7 +9,7 @@ import Combine
 
 final class GithubSearchResultViewModel: ObservableObject {
     @Published var searchItems: [SearchItem] = []
-    @Published var isNavigation = false
+    @Published var shouldNavigate = false
 
     private var cancellable = [AnyCancellable]()
     private let searchItemRepository: SearchItemRepository
@@ -32,6 +32,6 @@ final class GithubSearchResultViewModel: ObservableObject {
 
     func onRowTapped(item: SearchItem) {
         searchItemRepository.postSearchItem(item: item)
-        isNavigation = true
+        shouldNavigate = true
     }
 }
