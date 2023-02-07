@@ -30,7 +30,6 @@ final class GithubSearchResultViewModel: ObservableObject {
             }.store(in: &cancellable)
     }
 
-    func onRowTapped(item: SearchItem) {
         searchItemRepository.postSearchItem(item: item)
         shouldNavigate = true
     }

@@ -21,7 +21,7 @@ struct GithubSearchResultView: View {
                     ForEach(viewModel.searchItems) { item in
                         Text(item.name)
                             .onTapGesture {
-                                viewModel.onRowTapped(item: item)
+                                viewModel.rowTapped(item: item)
                             }
                     }
                 }
