@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct GithubSearchView: View {
-    @ObservedObject private var viewModel: GithubSearchViewModel
-
-    init(viewModel: GithubSearchViewModel = GithubSearchViewModel()) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var viewModel = GithubSearchViewModel()
 
     var body: some View {
         VStack {

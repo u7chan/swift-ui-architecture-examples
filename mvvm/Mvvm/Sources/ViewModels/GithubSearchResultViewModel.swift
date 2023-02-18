@@ -13,8 +13,6 @@ final class GithubSearchResultViewModel: ObservableObject {
     @Published var searchItems: [SearchItem] = []
     @Published var shouldNavigate = false
 
-    private(set) var objectWillChange = ObservableObjectPublisher()
-
     private var cancellable = [AnyCancellable]()
     private let searchItemRepository: SearchItemRepository
 
@@ -23,7 +21,7 @@ final class GithubSearchResultViewModel: ObservableObject {
     }
 
     func fetch() {
-        self.searchItemRepository.fetchSearchItems()
+        searchItemRepository.fetchSearchItems()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -34,15 +32,13 @@ final class GithubSearchResultViewModel: ObservableObject {
                     print("[ERROR] \(error)")
                 }
             } receiveValue: { items in
-                print("receive ==> \(items.count)")
                 self.searchItems = items
-                self.objectWillChange.send()
+
             }.store(in: &cancellable)
     }
 
     func rowTapped(item: SearchItem) {
         searchItemRepository.postSearchItem(item: item)
         shouldNavigate.toggle()
-        self.objectWillChange.send()
     }
 }

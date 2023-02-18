@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    @ObservedObject private var viewModel: LaunchScreenViewModel
-
-    init(viewModel: LaunchScreenViewModel = LaunchScreenViewModel()) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var viewModel = LaunchScreenViewModel()
 
     var body: some View {
         ZStack {

@@ -8,19 +8,10 @@
 import SwiftUI
 
 struct GithubSearchResultView: View {
-    @ObservedObject private var viewModel: GithubSearchResultViewModel
-
-    init(viewModel: GithubSearchResultViewModel = GithubSearchResultViewModel()) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var viewModel = GithubSearchResultViewModel()
 
     var body: some View {
         VStack {
-//            Button {
-//                viewModel.fetch()
-//            } label: {
-//                Text("Fetch")
-//            }
             NavigationStack {
                 List($viewModel.searchItems) { $item in
                     Text(item.name)
@@ -29,7 +20,7 @@ struct GithubSearchResultView: View {
                         }
                 }
                 .onAppear {
-                    viewModel.fetch() // !!! Not working データは取得されるが再描画されない !!!
+                    viewModel.fetch()
                 }
             }
             .navigationDestination(isPresented: $viewModel.shouldNavigate) {
