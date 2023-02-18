@@ -8,24 +8,22 @@
 import SwiftUI
 
 struct GithubSearchResultView: View {
-    @ObservedObject private var viewModel: GithubSearchResultViewModel
-
-    init(viewModel: GithubSearchResultViewModel = GithubSearchResultViewModel()) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var viewModel = GithubSearchResultViewModel()
 
     var body: some View {
         VStack {
             NavigationStack {
-                List {
-                    ForEach(viewModel.searchItems) { item in
-                        Text(item.name)
-                            .onTapGesture {
-                                viewModel.rowTapped(item: item)
-                            }
-                    }
+                List($viewModel.searchItems) { $item in
+                    Text(item.name)
+                        .onTapGesture {
+                            viewModel.rowTapped(item: item)
+                        }
                 }
-            }.navigationDestination(isPresented: $viewModel.shouldNavigate) {
+                .onAppear {
+                    viewModel.fetch()
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.shouldNavigate) {
                 GithubDetailView()
             }
         }

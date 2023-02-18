@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct GithubDetailView: View {
-    @ObservedObject private var viewModel: GithubDetailViewModel
-
-    init(viewModel: GithubDetailViewModel = GithubDetailViewModel()) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var viewModel = GithubDetailViewModel()
+    @State private var navigationTitle = ""
 
     var body: some View {
-        if let searchItem = viewModel.searchItem {
-            ZStack {
+        ZStack {
+            if let searchItem = viewModel.searchItem {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text("id: ")
@@ -30,15 +27,20 @@ struct GithubDetailView: View {
                         Text("language: ")
                         Text(searchItem.language ?? "")
                     }
+                }.onAppear {
+                    navigationTitle = searchItem.name
                 }
+            } else {
+                ProgressView()
             }
-            .modifier(FullFrameModifier())
-            .navigationTitle(searchItem.name)
-            .navigationBarTitleDisplayMode(.inline)
-            .background(Color("Background"))
-        } else {
-            ProgressView()
         }
+        .onAppear {
+            viewModel.fetch()
+        }
+        .modifier(FullFrameModifier())
+        .navigationTitle(navigationTitle)
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color("Background"))
     }
 }
 

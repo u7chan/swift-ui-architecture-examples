@@ -6,6 +6,8 @@
 //
 
 import Combine
+import Dispatch
+import Foundation
 
 final class GithubSearchResultViewModel: ObservableObject {
     @Published var searchItems: [SearchItem] = []
@@ -16,7 +18,11 @@ final class GithubSearchResultViewModel: ObservableObject {
 
     init(searchItemRepository: SearchItemRepository = DI.singleton.searchItemRepository) {
         self.searchItemRepository = searchItemRepository
-        self.searchItemRepository.fetchSearchItems()
+    }
+
+    func fetch() {
+        searchItemRepository.fetchSearchItems()
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -27,10 +33,12 @@ final class GithubSearchResultViewModel: ObservableObject {
                 }
             } receiveValue: { items in
                 self.searchItems = items
+
             }.store(in: &cancellable)
     }
 
+    func rowTapped(item: SearchItem) {
         searchItemRepository.postSearchItem(item: item)
-        shouldNavigate = true
+        shouldNavigate.toggle()
     }
 }
